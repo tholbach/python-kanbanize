@@ -121,6 +121,7 @@ class Kanbanize(Session):
         :type details: string 
         :rtype: xml
         """
+	details = {}
         details['taskid'] = taskid
         details['comment'] = comment
         params = json.dumps(details)
