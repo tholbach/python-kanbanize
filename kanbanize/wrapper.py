@@ -125,7 +125,7 @@ class Kanbanize(Session):
         details['comment'] = comment
         params = json.dumps(details)
         logging.debug('add_comment:%s' % params)
-        r = self.post('/add_coment/', data=params, format = 'raw')
+        r = self.post('/add_comment/', data=params, format = 'raw')
         return r.content
 
     def edit_task(self, boardid, details):
