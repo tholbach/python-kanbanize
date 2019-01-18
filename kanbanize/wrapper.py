@@ -112,7 +112,7 @@ class Kanbanize(Session):
         r = self.post('/create_new_task/', data=params, format = 'raw')
         return r.content
 
-    def add_comment(self, taskid, comment):
+    def add_comment(self, taskid, details):
         """
         Creates a new comment in 'taskid' task with comment
         :param taskid: Task number where comment should be posted
@@ -121,9 +121,7 @@ class Kanbanize(Session):
         :type details: string 
         :rtype: xml
         """
-	details = {}
         details['taskid'] = taskid
-        details['comment'] = comment
         params = json.dumps(details)
         logging.debug('add_comment:%s' % params)
         r = self.post('/add_comment/', data=params, format = 'raw')
